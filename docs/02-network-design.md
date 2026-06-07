@@ -24,6 +24,7 @@
 
 ## 서비스 접근 흐름
 
+```text
 외부 클라이언트
   ↓
 Ingress Controller (192.168.150.11 or 192.168.150.12 NodePort)
