@@ -1,5 +1,11 @@
 -- 데이터베이스 사용자 및 권한 설정
-CREATE USER webuser WITH PASSWORD 'yourpassword';
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'webuser') THEN
+    CREATE USER webuser WITH PASSWORD 'yourpassword';
+  END IF;
+END
+$$;
 GRANT ALL PRIVILEGES ON DATABASE webdb TO webuser;
 
 -- posts 테이블 생성
